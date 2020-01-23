@@ -8,7 +8,7 @@ const PAGE = 20;
   const output = {};
   const data = await Promise.all(
     Array.from({ length: PAGE }, (v, i) => i + 1).map(i =>
-      fs.readFile(path.join(DATA_DIR, `jd.${i}.json`), {
+      fs.readFile(path.join(DATA_DIR, `jd-2.${i}.json`), {
         encoding: 'utf8'
       })
     )
@@ -58,6 +58,6 @@ const PAGE = 20;
   console.log(`low price ${lowPrice.length}`);
   console.log(`lower ratio ${JSON.stringify(lowRatio)}`);
 
-  await fs.writeFile(path.join(DATA_DIR, 'analysis.json'), JSON.stringify(output));
+  await fs.writeFile(path.join(DATA_DIR, 'analysis-2.json'), JSON.stringify(output));
   console.log('analysis.json generated!');
 })();
